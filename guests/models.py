@@ -20,7 +20,7 @@ class Party(models.Model):
     """
     A party consists of one or more guests.
     """
-
+    id = models.AutoField(primary_key=True)
     name = models.TextField()
     type = models.CharField(max_length=10, choices=ALLOWED_TYPES)
     category = models.CharField(max_length=20, null=True, blank=True)
@@ -68,7 +68,7 @@ class Guest(models.Model):
     """
     A single guest
     """
-
+    id = models.AutoField(primary_key=True)
     party = models.ForeignKey("Party", on_delete=models.CASCADE)
     first_name = models.TextField()
     last_name = models.TextField(null=True, blank=True)
